@@ -1,0 +1,238 @@
+/* ==========================================
+   sman.dev Inspired Modern CSS & ANIMATIONS
+   ========================================== */
+   :root {
+    /* True Dark Colors */
+    --bg-color: #050505;
+    --card-bg: #111111;
+    --border-color: #222222;
+    --border-hover: #3b82f6;
+    
+    /* Text Colors */
+    --text-main: #f9fafb;
+    --text-muted: #a3a3a3;
+    
+    /* Gradients */
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-pink: #ec4899;
+    --gradient-primary: linear-gradient(to right, #3b82f6, #8b5cf6);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+li { list-style: none; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+.section-padding { padding: 6rem 0; }
+.text-center { text-align: center; }
+
+/* ==========================================
+   1. Animated Background Orbs (Floating)
+   ========================================== */
+.glow-orb {
+    position: fixed; border-radius: 50%; filter: blur(120px);
+    z-index: -1; pointer-events: none; opacity: 0.5;
+    animation: float-orbs 15s infinite alternate ease-in-out;
+}
+.orb-1 {
+    top: -10%; left: -10%; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+}
+.orb-2 {
+    bottom: -10%; right: -10%; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+    animation-delay: -5s;
+}
+
+@keyframes float-orbs {
+    0% { transform: translate(0px, 0px) scale(1); }
+    100% { transform: translate(100px, 50px) scale(1.2); }
+}
+
+/* ==========================================
+   2. Animated Gradient Text
+   ========================================== */
+.animated-gradient-text {
+    background: linear-gradient(270deg, var(--accent-blue), var(--accent-purple), var(--accent-pink), var(--accent-blue));
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 6s ease infinite;
+    display: inline-block;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==========================================
+   Typography & Headers
+   ========================================== */
+.section-heading { font-size: 2rem; font-weight: 700; margin-bottom: 2.5rem; color: var(--text-main); display: flex; align-items: center; gap: 1rem; }
+.section-heading::after { content: ''; height: 1px; flex-grow: 1; background: var(--border-color); }
+
+/* ==========================================
+   3. Card Animations (Magic Hover Shine)
+   ========================================== */
+.card {
+    background: var(--card-bg); border: 1px solid var(--border-color);
+    border-radius: 16px; padding: 2rem;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    position: relative; overflow: hidden;
+}
+
+/* Glass Shine Effect on Hover */
+.magic-hover::before {
+    content: ''; position: absolute; top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+    transform: skewX(-25deg); transition: left 0.7s ease; z-index: 1; pointer-events: none;
+}
+.magic-hover:hover::before { left: 150%; }
+.card:hover {
+    border-color: var(--border-hover); transform: translateY(-8px);
+    box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.2);
+}
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border-radius: 8px; font-size: 0.95rem; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+.btn-primary { background: var(--text-main); color: var(--bg-color); border: 1px solid var(--text-main); }
+.btn-primary:hover { background: transparent; color: var(--text-main); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,255,255,0.1); }
+.btn-secondary { background: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
+.btn-secondary:hover { border-color: var(--text-main); transform: translateY(-3px); }
+
+/* ==========================================
+   Navbar
+   ========================================== */
+.navbar { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(5, 5, 5, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color 0.3s; }
+.navbar.scrolled { border-bottom: 1px solid var(--border-color); }
+.nav-container { max-width: 1100px; margin: 0 auto; padding: 1.2rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 800; }
+.logo span { color: var(--accent-blue); }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { font-size: 0.95rem; color: var(--text-muted); transition: color 0.2s; font-weight: 500; }
+.nav-links a:hover { color: var(--text-main); }
+.nav-actions { display: flex; gap: 1rem; align-items: center; }
+.mobile-menu-btn { display: none; background: none; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer; }
+
+/* Mobile Menu */
+.mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; height: 100vh; background: rgba(5, 5, 5, 0.98); z-index: 200; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; transition: right 0.4s ease; }
+.mobile-menu.active { right: 0; }
+.close-menu { position: absolute; top: 2rem; right: 2rem; background: none; border: none; font-size: 2rem; color: var(--text-main); cursor: pointer; }
+.mobile-link { font-size: 1.5rem; font-weight: 600; color: var(--text-main); }
+
+/* ==========================================
+   4. Hero Section & Rotating Border Image
+   ========================================== */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; gap: 4rem; padding-top: 5rem; }
+.hero-content { flex: 1; }
+.status-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500; background: var(--card-bg); border: 1px solid var(--border-color); margin-bottom: 1.5rem; color: var(--text-muted); }
+.pulse-dot { width: 8px; height: 8px; background: #10b981; border-radius: 50%; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); animation: pulse 2s infinite; }
+@keyframes pulse { 70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+.hero-name { font-size: clamp(3rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 0.5rem; }
+.hero-title { font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 600; color: var(--text-muted); margin-bottom: 1.5rem; }
+.hero-desc { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 500px; }
+.hero-buttons { display: flex; gap: 1rem; }
+
+/* Rotating Glowing Border around Image */
+.hero-image-container { flex: 0.8; display: flex; justify-content: center; animation: float-img 6s ease-in-out infinite; }
+.rotating-border {
+    position: relative; width: clamp(280px, 25vw, 350px); height: clamp(280px, 25vw, 350px);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: transparent;
+}
+.rotating-border::before {
+    content: ''; position: absolute; inset: -4px; border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent, var(--accent-blue), var(--accent-purple), transparent 40%);
+    animation: spin-border 4s linear infinite; z-index: -1;
+}
+.hero-image { width: 100%; height: 100%; border-radius: 50%; overflow: hidden; border: 5px solid var(--bg-color); background: var(--card-bg); }
+.hero-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+@keyframes spin-border { 100% { transform: rotate(360deg); } }
+@keyframes float-img { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+/* ==========================================
+   About & Skills Sections
+   ========================================== */
+.about-card p { color: var(--text-muted); font-size: 1.05rem; position: relative; z-index: 2; }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.icon-gradient { font-size: 2rem; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 1rem; position: relative; z-index: 2; }
+.skill-card h3 { font-size: 1.2rem; margin-bottom: 1.5rem; position: relative; z-index: 2; }
+.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; position: relative; z-index: 2; }
+.tags span { padding: 0.4rem 0.8rem; font-size: 0.85rem; font-weight: 500; color: var(--text-main); background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); border-radius: 6px; }
+.clean-list li { color: var(--text-muted); padding: 0.4rem 0; display: flex; align-items: center; gap: 0.8rem; position: relative; z-index: 2; }
+.text-blue { color: var(--accent-blue); }
+
+/* ==========================================
+   Projects Section
+   ========================================== */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+.project-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; position: relative; z-index: 2; }
+.project-icon { font-size: 2rem; color: var(--text-main); }
+.project-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); display: flex; gap: 0.4rem; align-items: center; transition: color 0.2s; }
+.project-links a:hover { color: var(--accent-blue); }
+.project-title { font-size: 1.4rem; margin-bottom: 0.3rem; position: relative; z-index: 2; }
+.project-subtitle { font-size: 0.9rem; color: var(--accent-blue); margin-bottom: 1rem; position: relative; z-index: 2; }
+.project-desc { color: var(--text-muted); flex-grow: 1; margin-bottom: 1.5rem; font-size: 0.95rem; position: relative; z-index: 2; }
+
+/* ==========================================
+   Education Timeline
+   ========================================== */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 2px; background: var(--border-color); }
+.timeline-item { position: relative; margin-bottom: 2rem; }
+.timeline-dot { position: absolute; left: -37px; top: 24px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-blue); box-shadow: 0 0 0 4px var(--bg-color); transition: transform 0.3s; }
+.timeline-item:hover .timeline-dot { transform: scale(1.5); background: var(--accent-purple); }
+.timeline-date { display: inline-block; padding: 0.3rem 0.8rem; background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; position: relative; z-index: 2; }
+.timeline-content h3 { font-size: 1.2rem; margin-bottom: 0.3rem; position: relative; z-index: 2; }
+.timeline-content p { color: var(--text-muted); font-size: 0.95rem; position: relative; z-index: 2; }
+
+/* ==========================================
+   Contact & Footer
+   ========================================== */
+.contact-card { text-align: center; padding: 4rem 2rem; }
+.contact-card h2 { font-size: 2.5rem; margin-bottom: 1rem; position: relative; z-index: 2;}
+.contact-card p { color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem auto; font-size: 1.1rem; position: relative; z-index: 2;}
+.email-link { font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; position: relative; z-index: 2; }
+.location { color: var(--text-muted); margin-bottom: 2.5rem; position: relative; z-index: 2;}
+.socials { display: flex; justify-content: center; gap: 1.5rem; position: relative; z-index: 2;}
+.socials a { width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--bg-color); border: 1px solid var(--border-color); font-size: 1.2rem; color: var(--text-muted); transition: all 0.3s; }
+.socials a:hover { color: var(--text-main); border-color: var(--accent-blue); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(59,130,246,0.2); }
+
+footer { padding: 2rem 0; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
+
+/* ==========================================
+   5. Staggered Pop-up Animation (Scroll)
+   ========================================== */
+.animate-up {
+    opacity: 0;
+    transform: translateY(60px); /* Increased distance for clear animation */
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+.animate-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   Responsive Design
+   ========================================== */
+@media (max-width: 768px) {
+    .nav-links, .nav-actions .btn { display: none; }
+    .mobile-menu-btn { display: block; }
+    .hero { flex-direction: column-reverse; text-align: center; gap: 3rem; padding-top: 7rem; }
+    .hero-desc { margin: 0 auto 2.5rem auto; }
+    .hero-buttons { justify-content: center; }
+    .hero-image-container { width: 100%; }
+    .timeline::before { left: 0; }
+    .timeline { padding-left: 1.5rem; }
+    .timeline-dot { left: -31px; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .section-heading { font-size: 1.6rem; }
+}

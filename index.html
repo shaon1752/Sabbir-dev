@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabbir Ahmed | Software Engineer</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Animated Background Glowing Orbs -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <!-- Glassmorphism Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Sabbir<span>.</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary">Contact Me</a>
+                <button class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <button class="close-menu"><i class="fa-solid fa-xmark"></i></button>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#education" class="mobile-link">Education</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero container">
+            <div class="hero-content animate-up">
+                <div class="status-badge">
+                    <span class="pulse-dot"></span> Open to Opportunities
+                </div>
+                <!-- Animated Gradient Text -->
+                <h1 class="hero-name">Hi, I'm <br><span class="animated-gradient-text">Sabbir Ahmed</span></h1>
+                <h2 class="hero-title">Software Engineer & Cricket Player.</h2>
+                <p class="hero-desc">I build clean, functional, and fast digital solutions using a smart and structured approach. I prefer efficiency over complexity.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="resume.pdf" class="btn btn-secondary"><i class="fa-solid fa-download"></i> Resume</a>
+                </div>
+            </div>
+            
+            <!-- Animated Floating Profile Image with Rotating Border -->
+            <div class="hero-image-container animate-up" style="transition-delay: 0.2s;">
+                <div class="rotating-border">
+                    <div class="hero-image">
+                        <!-- এখানে আপনার ছবি দিন -->
+                        <img src="sabbir.png" alt="Sabbir Ahmed">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section-padding container">
+            <h2 class="section-heading animate-up">About Me</h2>
+            <div class="about-card card animate-up magic-hover">
+                <p>I am a CSE student with a growing focus on software engineering and practical tech solutions. I enjoy using AI, modern tools, and simple web technologies to create clean and functional digital projects. I prefer efficiency over complexity, and I like solving problems with a smart, structured approach.</p>
+                <p style="margin-top: 1rem;">Alongside my interest in technology, cricket plays a meaningful role in my life, shaping my discipline, patience, and teamwork qualities that support my growth as a future engineer.</p>
+            </div>
+        </section>
+
+        <!-- Skills & Tech Arsenal -->
+        <section id="skills" class="skills section-padding container">
+            <h2 class="section-heading animate-up">Tech Arsenal & Skills</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card card animate-up magic-hover">
+                    <i class="fa-solid fa-code icon-gradient"></i>
+                    <h3>Tech Stack</h3>
+                    <div class="tags">
+                        <span>Python</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>WordPress</span><span>Generative AI</span>
+                    </div>
+                </div>
+
+                <div class="skill-card card animate-up magic-hover">
+                    <i class="fa-solid fa-users icon-gradient"></i>
+                    <h3>Soft Skills</h3>
+                    <div class="tags">
+                        <span>Problem Solving</span><span>Teamwork</span><span>Communication</span><span>Leadership</span><span>Cricket Strategy</span>
+                    </div>
+                </div>
+
+                <div class="skill-card card animate-up magic-hover">
+                    <i class="fa-solid fa-bolt icon-gradient"></i>
+                    <h3>Core Strengths</h3>
+                    <ul class="clean-list">
+                        <li><i class="fa-solid fa-check text-blue"></i> AI-assisted problem solving</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Python programming & logic</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Structural web design</li>
+                        <li><i class="fa-solid fa-check text-blue"></i> Tech-teamwork & sports discipline</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section id="projects" class="projects section-padding container">
+            <h2 class="section-heading animate-up">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card card animate-up magic-hover">
+                    <div class="project-top">
+                        <i class="fa-solid fa-store project-icon"></i>
+                        <div class="project-links">
+                            <a href="https://solvia-eco.netlify.app" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live</a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Solvia</h3>
+                    <p class="project-subtitle">E-commerce Frontend Platform</p>
+                    <p class="project-desc">A sophisticated clothing e-commerce frontend. Features include a responsive product grid, dynamic size & color variations, a functional cart sidebar, area-based delivery charges, and EmailJS integration.</p>
+                    <div class="tags">
+                        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>EmailJS</span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <!-- Professional Journey / Education -->
+        <section id="education" class="education section-padding container">
+            <h2 class="section-heading animate-up">Educational Journey</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card magic-hover">
+                        <span class="timeline-date">Present</span>
+                        <h3>BSc in Computer Science & Engineering</h3>
+                        <p>Independent University, Bangladesh (IUB)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card magic-hover">
+                        <span class="timeline-date">GPA: 5.00</span>
+                        <h3>Higher Secondary Certificate (HSC)</h3>
+                        <p>Agriculture University College, Mymensingh</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content card magic-hover">
+                        <span class="timeline-date">GPA: 5.00</span>
+                        <h3>Secondary School Certificate (SSC)</h3>
+                        <p>Premier Ideal High School</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section-padding container">
+            <div class="contact-card card animate-up magic-hover">
+                <h2>Let's Connect</h2>
+                <p>I am currently open to learning opportunities, internships, and tech-related projects. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                <a href="mailto:Shaon1752@gmail.com" class="animated-gradient-text email-link">Shaon1752@gmail.com</a>
+                <p class="location"><i class="fa-solid fa-location-dot"></i> Mymensingh, Bangladesh</p>
+                
+                <div class="socials">
+                    <a href="https://github.com/shaon1752" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.facebook.com/sabbir.ahamedshaon17" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sabbir_ahmedshaon?igsh=MWZseTZkczEwNjgzZQ==" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; <span id="year"></span> Sabbir Ahmed. Built with precision.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
