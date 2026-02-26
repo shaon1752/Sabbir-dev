@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     
     // 1. Navbar Glassmorphism Effect on Scroll
