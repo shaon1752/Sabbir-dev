@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
     
     // 1. Navbar Glassmorphism Effect on Scroll
@@ -38,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // ⭐⭐⭐ FIXED SCROLL ANIMATION ⭐⭐⭐
+    // 3. Scroll Animation
     const animateElements = document.querySelectorAll('.animate-up');
 
     const observer = new IntersectionObserver((entries) => {
@@ -52,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     animateElements.forEach(el => {
         observer.observe(el);
 
-        // ⭐ FIX: already visible hero element show করে দেবে
+        // FIX: already visible hero element show করে দেবে
         const rect = el.getBoundingClientRect();
         if(rect.top < window.innerHeight){
             el.classList.add("show");
